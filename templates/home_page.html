@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Traffic Predictor</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .hero-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Places the image behind the content */
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Adds a semi-transparent overlay */
+            z-index: 1;
+        }
+
+        .content {
+            z-index: 2;
+        }
+
+        .content h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .content p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            background-color: #ff7e5f;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff5a3a;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 60px 20px;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: -80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .features-section h2 {
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-container:nth-child(odd) .feature-content {
+            order: 1;
+        }
+
+        .feature-container:nth-child(odd) .feature img {
+            transform: translateX(-100%);
+            animation: slideInFromLeft 1s forwards;
+        }
+
+        .feature-container:nth-child(even) .feature img {
+            transform: translateX(100%);
+            animation: slideInFromRight 1s forwards;
+        }
+
+        .feature {
+            width: 45%;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        .feature img {
+            width: 100%;
+           
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.8s ease;
+        }
+        
+
+        .feature-content {
+            padding: 20px;
+            text-align: left;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        .feature-content h5 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .feature-content p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ff7e5f;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff5a3a;
+        }
+
+        @media (max-width: 768px) {
+            .feature-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .features-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <img src="img0.jpg" alt="Traffic Background">
+        <div class="hero-overlay"></div>
+        <div class="content">
+            <h1>Welcome to Traffic Predictor</h1>
+            <p>Accurate traffic predictions to make your journeys smoother.</p>
+            <a href="index.html" class="btn-primary">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <h2>Why Use Traffic Predictor?</h2>
+
+        <div class="feature-container">
+            <div class="feature">
+                <img src="img1.jpeg" alt="Real-Time Insights">
+            </div>
+            <div class="feature-content">
+                <h5>Real-Time Insights</h5>
+                <p>Get traffic predictions based on real-time data and trends, ensuring that you are always prepared for your trip. Whether it's construction, accidents, or peak-hour congestion, we provide the most accurate predictions.</p>
+                <p>With real-time updates, you can adjust your plans on the fly, avoiding delays and optimizing your route.</p>
+            </div>
+        </div>
+
+        <div class="feature-container">
+            <div class="feature">
+                <img src="image2.jpeg" alt="Weather Integration">
+            </div>
+            <div class="feature-content">
+                <h5>Weather Integration</h5>
+                <p>Plan better with traffic forecasts influenced by weather conditions. Whether it's rain, snow, fog, or clear skies, your traffic prediction will take weather into account, providing a more accurate forecast for your journey.</p>
+                <p>Expect delays due to poor weather, and plan your route accordingly to avoid the worst conditions.</p>
+            </div>
+        </div>
+
+        <div class="feature-container">
+            <div class="feature">
+                <img src="img3.jpg" alt="Easy to Use">
+            </div>
+            <div class="feature-content">
+                <h5>Easy to Use</h5>
+                <p>Our user interface is intuitive, clean, and easy to navigate. Whether you're a tech-savvy driver or someone who's just getting started with traffic apps, you’ll find the platform simple and pleasant to use.</p>
+                <p>Access predictions in just a few clicks and start your trip with confidence!</p>
+            </div>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>

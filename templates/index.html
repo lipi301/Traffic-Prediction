@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .form-container h2 {
+            font-size: 1.8rem;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .form-container input, .form-container select, .form-container button {
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        #result-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img5.jpg" alt="Traffic Background" class="background-image">
+
+    <header>
+        <h1>Traffic Prediction System</h1>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>Enter Traffic Prediction Data</h2>
+            <form id="prediction-form">
+                <label for="location">Location (City):</label>
+                <input type="text" id="location" name="location" required><br><br>
+
+                <label for="time">Time of Day:</label>
+                <input type="time" id="time" name="time" required><br><br>
+
+                <label for="weather">Weather Condition:</label>
+                <select id="weather" name="weather" required>
+                    <option value="Clear">Clear</option>
+                    <option value="Rainy">Rainy</option>
+                    <option value="Cloudy">Cloudy</option>
+                    <option value="Foggy">Foggy</option>
+                </select><br><br>
+
+                <button type="submit">Predict Traffic</button>
+            </form>
+        </div>
+
+        <div id="result-container">
+            <h2>Prediction Result</h2>
+            <p id="prediction-result">Loading...</p>
+        </div>
+    </main>
+
+  
+
+    <script>
+        document.getElementById('prediction-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const location = document.getElementById('location').value;
+            const time = document.getElementById('time').value;
+            const weather = document.getElementById('weather').value;
+
+            const resultContainer = document.getElementById('result-container');
+            const predictionResult = document.getElementById('prediction-result');
+
+            // Simulating an AI prediction logic (mock result for demonstration purposes)
+            const predictions = {
+                "Clear": "Moderate traffic expected.",
+                "Rainy": "Heavy traffic expected due to wet roads.",
+                "Cloudy": "Light traffic with no major delays.",
+                "Foggy": "Caution: Reduced visibility with potential delays."
+            };
+
+            // Display the result
+            predictionResult.textContent = `Prediction for ${location} at ${time} with ${weather} weather: ${predictions[weather]}`;
+            resultContainer.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
